@@ -1,0 +1,20 @@
+{
+  "name": "node-rpc-plex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon -L app.js"
+  },
+  "author": "Chung Hak Ngor",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "discord-rich-presence": "0.0.8",
+    "dotenv": "^8.2.0",
+    "plex-api": "^5.3.1"
+  }
+}
