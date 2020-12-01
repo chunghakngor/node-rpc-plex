@@ -1,8 +1,8 @@
 "use strict";
 
+const exec = require("child_process").exec;
 const RPC = require("discord-rpc");
 const EventEmitter = require("events");
-const exec = require("child_process").exec;
 const PlexAPI = require("plex-api");
 const plex = new PlexAPI({
 	hostname: process.env.PLEX_SERVER,
@@ -89,11 +89,11 @@ const updateRPC = (rpc, time) => {
 	if (sessions != undefined && process.env.PLEX_USERNAME in sessions) {
 		let data = sessions[process.env.PLEX_USERNAME];
 		presence.smallImageKey = data.state;
-		if (data.meta.type === "movie") {
+		if (data.meta.type != undefined && data.meta.type === "movie") {
 			presence.largeImageText = `Watching a Movie`;
 			presence.details = `${data.meta.title} (${data.meta.year})`;
 			presence.state = `${data.meta.genre}`;
-		} else if (data.meta.type === "episode") {
+		} else if (data.meta.type != undefined && data.meta.type === "episode") {
 			presence.largeImageText = `Watching a TV Show`;
 			presence.details = `${data.meta.show}`;
 			presence.state = `S${data.meta.season} E${data.meta.episode} - ${data.meta.title} (${data.meta.year})`;
