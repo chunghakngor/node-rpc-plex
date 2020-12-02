@@ -7,7 +7,7 @@ This is still project is still **currently under development**. The project has 
 ![idle](./img/idle.png) ![movies](./img/movie.png)  ![tvshow](./img/tvshow.png)
 
 
-### Usuage
+### Usage
 
 After cloning the repo, you will be required to edit and rename the `template.env` file to `.env`
 You will only be required to fill in the parameters for your Plex account.
