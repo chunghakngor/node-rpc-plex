@@ -1,5 +1,6 @@
 test/
 img/
+.vscode/
 
 # Logs
 logs
