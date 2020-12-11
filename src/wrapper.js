@@ -59,7 +59,7 @@ class RPCHandler extends EventEmitter {
 					});
 				}
 			},
-			(err) => this.emit("error", eerr)
+			(err) => this.emit("error", err)
 		);
 	}
 }
@@ -95,8 +95,8 @@ const updateRPC = (rpc, time) => {
 			presence.state = `${data.meta.genre}`;
 		} else if (data.meta.type != undefined && data.meta.type === "episode") {
 			presence.largeImageText = `Watching a TV Show`;
-			presence.details = `${data.meta.show}`;
-			presence.state = `S${data.meta.season} E${data.meta.episode} - ${data.meta.title} (${data.meta.year})`;
+			presence.details = `${data.meta.show} (${data.meta.year})`;
+			presence.state = `S${data.meta.season} E${data.meta.episode} - ${data.meta.title}`;
 		}
 
 		if (data.state === "paused") {
