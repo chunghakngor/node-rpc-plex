@@ -12,9 +12,13 @@ This is still project is still **currently under development**. The project has 
 After cloning the repo, you will be required to edit and rename the `template.env` file to `.env`
 You will only be required to fill in the parameters for your Plex account.
 
+- Create a discord client ID at [discord.com/developers](https://discord.com/developers/)
+- You can find your Plex token by [following this guide](https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/)
 ```
+## Discord
 CLIENT_ID=409127705980829707
 
+## Plex
 PLEX_SERVER=
 PLEX_SERVERNAME=
 PLEX_PORT=32400
