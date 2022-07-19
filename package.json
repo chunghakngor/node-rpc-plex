@@ -4,8 +4,8 @@
   "description": "",
   "main": "rpc.js",
   "scripts": {
-    "start": "node rpc.js",
-    "dev": "nodemon -L rpc.js"
+    "start": "node src/rpc.js",
+    "dev": "nodemon -L src/rpc.js"
   },
   "author": "Chung Hak Ngor",
   "license": "ISC",

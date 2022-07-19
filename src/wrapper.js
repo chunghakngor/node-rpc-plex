@@ -53,6 +53,9 @@ class RPCHandler extends EventEmitter {
 							case "episode":
 								user.meta = { type: media.type, show: media.grandparentTitle, season: media.parentIndex, episode: media.index, title: media.title, year: media.year };
 								break;
+							case "track":
+								user.meta = { type: media.type, artist: media.grandparentTitle, album: media.parentTitle, episode: media.index, title: media.title, year: media.parentYear, thumb: media.thumb, codec: `[${media?.Media[0]?.audioCodec?.toUpperCase()}]` };
+								break;
 						}
 						set.add(User.title);
 						this.activityCache[User.title] = user;
@@ -97,8 +100,11 @@ const updateRPC = (rpc, time) => {
 			presence.largeImageText = `Watching a TV Show`;
 			presence.details = `${data.meta.show} (${data.meta.year})`;
 			presence.state = `S${data.meta.season} E${data.meta.episode} - ${data.meta.title}`;
-		}
-
+		} else if (data.meta.type != undefined && data.meta.type === "track") {
+			presence.largeImageText = `Listening to Music`;
+			presence.state = `${data.meta.album} (${data.meta.year})`;
+			presence.details = `"${data.meta.title}" by ${data.meta.artist}`;
+		} 
 		if (data.state === "paused") {
 			presence.smallImageText = `Paused`;
 			time -= 1000;
